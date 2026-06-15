@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <UserSecretsId>f43f7f21-5abd-4fc6-81dd-7049193e36de</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Validations\**" />
+    <Content Remove="Validations\**" />
+    <EmbeddedResource Remove="Validations\**" />
+    <None Remove="Validations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\v1\AccountBlockSubmitController.cs" />
+    <Compile Remove="Controllers\v1\BankTransactionSubmitController.cs" />
+    <Compile Remove="Controllers\v1\GetDataFromNehzatController.cs" />
+    <Compile Remove="Controllers\v1\OpenBankAccountErrorSubmitController.cs" />
+    <Compile Remove="Controllers\v1\OuputController.cs" />
+    <Compile Remove="Controllers\v1\OutputGenerateController.cs" />
+    <Compile Remove="Controllers\v1\OutputListController.cs" />
+    <Compile Remove="Controllers\v1\ProjectContractSubmitController.cs" />
+    <Compile Remove="Controllers\v1\ProjectPaymentController.cs" />
+    <Compile Remove="Controllers\v1\StatusInquiryController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+
+	  <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+	  <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="23.7.0" />
+    <PackageReference Include="Polly" Version="8.3.1" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.24" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\Yarane.Application\Hub.Application.csproj" />
+    <ProjectReference Include="..\..\core\Yarane.Contract\Hub.Contract.csproj" />
+    <ProjectReference Include="..\..\framework\Yarane.Common\Hub.Common.csproj" />
+    <ProjectReference Include="..\..\infrastructure\Yarane.Persistance\Hub.Persistance.csproj" />
+    <ProjectReference Include="..\..\infrastructure\Yarane.Proxy\Hub.Proxy.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CleanLog">
+      <HintPath>CleanLog\CleanLog.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dtos\" />
+    <Folder Include="logs\" />
+  </ItemGroup>
+
+</Project>

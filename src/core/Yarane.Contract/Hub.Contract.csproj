@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.3" />
+    <PackageReference Include="SSH.NET" Version="2020.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\framework\Yarane.Common\Hub.Common.csproj" />
+    <ProjectReference Include="..\Yarane.Domain\Hub.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\ApplicationServices\" />
+    <Folder Include="Interfaces\AuthServices\" />
+    <Folder Include="Interfaces\ProxyServices\Yarane\" />
+    <Folder Include="Interfaces\Repositories\" />
+    <Folder Include="Interfaces\UserService\" />
+  </ItemGroup>
+
+</Project>
